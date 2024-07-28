@@ -231,7 +231,7 @@ Misalnya, dalam sistem rekomendasi buku, kita memiliki dua buku yang diwakili ol
 - Buku A: "Harry Potter and the Sorcerer's Stone"
 - Buku B: "Harry Potter and the Chamber of Secrets"
 
-Jika kita mengekstrak fitur-fitur (misalnya, judul, penulis, penerbit) dan mewakilinya sebagai vektor, kita dapat menghitung cosine similarity untuk menentukan seberapa mirip kedua buku ini. Jika hasilnya menunjukkan nilai cosine similarity yang tinggi, sistem dapat merekomendasikan Buku B kepada pengguna yang menyukai Buku A.
+Jika kita mengekstrak fitur dan mewakilinya sebagai vektor, kita dapat menghitung cosine similarity untuk menentukan seberapa mirip kedua buku ini. Jika hasilnya menunjukkan nilai cosine similarity yang tinggi, sistem dapat merekomendasikan Buku B kepada pengguna yang menyukai Buku A.
 
 ### 4. Membangun Fungsi Rekomendasi
 
