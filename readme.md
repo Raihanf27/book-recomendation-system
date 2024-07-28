@@ -151,21 +151,23 @@ Content-based filtering bekerja dengan menganalisis fitur dari item yang akan di
 
 Proses modelling dalam proyek ini bertujuan untuk membangun sistem rekomendasi buku berdasarkan kemiripan fitur menggunakan model content-based filtering. Berikut adalah langkah-langkah detail dalam proses modelling:
 
-1. Pengambilan Sampel data
-   Langkah pertama adalah mengambil sampel acak dari data yang telah disiapkan untuk memastikan bahwa data tersebut siap digunakan untuk modelling.
+### **1. Pengambilan Sampel data**
+
+Langkah pertama adalah mengambil sampel acak dari data yang telah disiapkan untuk memastikan bahwa data tersebut siap digunakan untuk modelling.
 
 ```
 data = book_new
 data.sample(5)
 ```
 
-2. Mengubah Teks Menjadi Representasi Numerik dengan TF-IDF.
+### **2. Mengubah Teks Menjadi Representasi Numerik dengan TF-IDF.**
 
-- TF-IDF (Term Frequency-Inverse Document Frequency)
-  TF-IDF adalah teknik yang digunakan untuk mengubah teks menjadi representasi numerik. Ini membantu dalam memahami seberapa penting suatu kata dalam dokumen tertentu relatif terhadap seluruh kumpulan dokumen.
+TF-IDF (Term Frequency-Inverse Document Frequency)
+TF-IDF adalah teknik yang digunakan untuk mengubah teks menjadi representasi numerik. Ini membantu dalam memahami seberapa penting suatu kata dalam dokumen tertentu relatif terhadap seluruh kumpulan dokumen.
 
-- Insialisasi TfidfVectorizer
-  Menginisialisasi TfidfVectorizer dan memfitkan pada kolom Book_Features.
+**a. Insialisasi TfidfVectorizer**
+
+Menginisialisasi TfidfVectorizer dan memfitkan pada kolom Book_Features.
 
 ```
 tf = TfidfVectorizer()
@@ -173,22 +175,24 @@ tf.fit(data['Book_Features'])
 tf.get_feature_names_out()
 ```
 
-- Melakuakan Transformasi teks
-  Melakukan transformasi teks pada kolom Book_Features menggunakan TfidfVectorizer.
+**b. Melakukan Transformasi teks**
+
+Melakukan transformasi teks pada kolom Book_Features menggunakan TfidfVectorizer.
 
 ```
 tfidf_matrix = tf.fit_transform(data['Book_Features'])
 ```
 
-- Menghasilkan Vektor dalam bentuk matriks
-  Menghasilkan vektor TF-IDF dalam bentuk matriks, menggunakan fungsi todense().
+**c. Menghasilkan Vektor dalam bentuk matriks**
+
+Menghasilkan vektor TF-IDF dalam bentuk matriks, menggunakan fungsi todense().
 
 ```
 tfidf_matrix.todense()
 ```
 
-- Melihat matriks TF-IDF
-  Membuat DataFrame dari matriks TF-IDF, dengan kolom sebagai nama fitur (kata-kata) dan baris sebagai judul buku dari DataFrame data. Kemudian, akan menampilkan sampel acak dari 10 baris dan 22 kolom.
+**d. Melihat matriks TF-IDF**
+Membuat DataFrame dari matriks TF-IDF, dengan kolom sebagai nama fitur (kata-kata) dan baris sebagai judul buku dari DataFrame data. Kemudian, akan menampilkan sampel acak dari 10 baris dan 22 kolom.
 
 ```
 pd.DataFrame(
@@ -198,8 +202,8 @@ pd.DataFrame(
 ).sample(22, axis=1).sample(10, axis=0)
 ```
 
-3. Menghitung cosine similarity
-   Cosine Similarity adalah metrik yang digunakan untuk mengukur kemiripan antara dua vektor dalam ruang multidimensi. Ini digunakan untuk mengukur seberapa mirip satu buku dengan buku lainnya berdasarkan fitur yang telah diekstraksi.
+### 3. Menghitung cosine similarity
+Cosine Similarity adalah metrik yang digunakan untuk mengukur kemiripan antara dua vektor dalam ruang multidimensi. Ini digunakan untuk mengukur seberapa mirip satu buku dengan buku lainnya berdasarkan fitur yang telah diekstraksi.
 
 ```
 cosine_sim = cosine_similarity(tfidf_matrix)
@@ -208,9 +212,9 @@ print('Shape:', cosine_sim_df.shape)
 cosine_sim_df.sample(5, axis=1).sample(10, axis=0)
 ```
 
-4. Membangun Fungsi Rekomendasi
+### 4. Membangun Fungsi Rekomendasi
 
-- Fungsi book_recommendations dibuat untuk memberikan rekomendasi buku berdasarkan kemiripan dengan buku yang diberikan. Fungsi ini bekerja sebagai berikut:
+Fungsi book_recommendations dibuat untuk memberikan rekomendasi buku berdasarkan kemiripan dengan buku yang diberikan. Fungsi ini bekerja sebagai berikut:
 
   **Parameter Input:**
 
@@ -231,8 +235,8 @@ cosine_sim_df.sample(5, axis=1).sample(10, axis=0)
 
   - Menggabungkan dengan informasi buku dan mengembalikan k rekomendasi teratas.
 
-5. Menghasilkan Rekomendasi
-   Menggunakan fungsi book_recommendations untuk mendapatkan rekomendasi buku berdasarkan buku yang diberikan. Misalnya, untuk buku "Harry Potter and the Sorcerer's Stone (Book 1)". Dan memberikan rekomendasi buku yang diberikan.
+### 5. Menghasilkan Rekomendasi
+Menggunakan fungsi book_recommendations untuk mendapatkan rekomendasi buku berdasarkan buku yang diberikan. Misalnya, untuk buku "Harry Potter and the Sorcerer's Stone (Book 1)". Dan memberikan rekomendasi buku yang diberikan.
 
 ![hasil rekomendasi](https://github.com/user-attachments/assets/6fafc629-f8d6-4354-8499-c0be2530ea40)
 
