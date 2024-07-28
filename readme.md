@@ -254,7 +254,7 @@ Menggunakan fungsi book_recommendations untuk mendapatkan rekomendasi buku berda
 
 Pada proyek ini, kami menggunakan dua metrik evaluasi utama untuk mengukur kinerja sistem rekomendasi, yaitu presisi dan recall.
 
-**- Precision (Presisi):**
+**a. Precision (Presisi):**
 Presisi mengukur proporsi item yang direkomendasikan yang benar-benar relevan. Nilai presisi tinggi menunjukkan bahwa sistem tidak sering merekomendasikan item yang tidak relevan.
 
 ![Presisi](https://github.com/user-attachments/assets/f6b30f84-9d1d-4846-b9a3-75606d2c150d)
@@ -264,7 +264,7 @@ Presisi mengukur proporsi item yang direkomendasikan yang benar-benar relevan. N
 - Menghitung TP dan FP: Tentukan jumlah prediksi yang benar-benar positif (TP) dan prediksi yang salah dianggap positif (FP).
 - Menghitung Presisi: Bagi jumlah TP dengan total TP dan FP
 
-**- Recall:**
+**b. Recall:**
 Recall mengukur proporsi item relevan yang berhasil direkomendasikan oleh sistem. Nilai recall tinggi menunjukkan bahwa sistem berhasil merekomendasikan sebagian besar item yang relevan.
 
 ![recall](https://github.com/user-attachments/assets/60472ca7-416a-49be-aed5-fb3286865d76)
