@@ -69,7 +69,7 @@ Sumber data ini diperoleh dari kaggle yang dapat diakses melalu link berikut: ht
 
 Disini saya akan memeriksa data yang memilik statistik deskriptif dari data Ratings(Book-Rating) dan Users(Age):
 
-- **DataFrame Ratings:**
+ **a. DataFrame Ratings:**
 
 ![image](https://github.com/user-attachments/assets/df264b9a-2ca3-4212-85e0-5e0db45bb432)
 
@@ -84,7 +84,7 @@ Bisa dilihat pada statistik diatas bahwa Book-Rating memiliki:
 - Max: Rating Buku terbesar 10
 
 
-- **DataFrame Users:**
+\n**b.DataFrame Users:**
 
 ![statistikusers](https://github.com/user-attachments/assets/24fffdf0-71f0-420f-8a6a-b37af71ec15c)
 
