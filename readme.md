@@ -84,7 +84,7 @@ Bisa dilihat pada statistik diatas bahwa Book-Rating memiliki:
 - Max: Rating Buku terbesar 10
 
 
-\n**b.DataFrame Users:**
+**b. DataFrame Users:**
 
 ![statistikusers](https://github.com/user-attachments/assets/24fffdf0-71f0-420f-8a6a-b37af71ec15c)
 
