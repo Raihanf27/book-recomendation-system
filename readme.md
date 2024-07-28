@@ -109,40 +109,48 @@ Bisa dilihat pada statistik diatas bahwa umur memiliki:
 
 ## Data Preparation
 
-1. Menghapus Kolom yang Tidak Relevan
+**1. Menghapus Kolom yang Tidak Relevan**
+
    Setelah dataset digabungkan, beberapa kolom tidak relevan atau tidak berguna untuk modeling. Menghapus kolom seperti Image-URL-S, Image-URL-M, Image-URL-L, Year-Of-Publication, Location, dan Age membantu menyederhanakan dataset dan fokus pada informasi yang penting.
 
-2. Menangani Nilai Null
+**2. Menangani Nilai Null**
+
    Nilai null atau missing values dapat menyebabkan masalah dalam analisis dan modeling. Dalam kasus ini, kolom Publisher memiliki nilai null yang perlu ditangani. Menghapus baris dengan nilai null memastikan data yang digunakan lengkap dan tidak menyebabkan error dalam tahap selanjutnya.
 
-3. Memeriksa nilai Book-Rating
+**3. Memeriksa nilai Book-Rating**
+
    Menghapus baris yang memiliki nilai Book-Rating kurang dari 0 penting untuk memastikan bahwa hanya rating yang valid dan relevan yang dipertimbangkan dalam analisis dan modeling. Rating 0 dianggap sebagai implicit feedback dan mungkin tidak memberikan informasi yang berguna untuk model rekomendasi yang dibangun.
 
-4. Memeriksa nilai unik kolom
+**4. Memeriksa nilai unik kolom**
+
    Memeriksa nilai unik pada kolom User-ID, ISBN, dan Book-Title membantu memahami distribusi data dan memastikan bahwa tidak ada duplikasi yang tidak diinginkan. Ini juga membantu dalam validasi bahwa data telah digabungkan dengan benar.
 
-5. Membuuat Dataframe
+**5. Membuuat Dataframe**
+
    Membuat kolom Features yang merupakan gabungan dari Book-Title, Book-Author, dan Publisher penting untuk model content-based filtering. Kolom ini menyatukan informasi penting dari buku yang akan digunakan untuk menghitung kemiripan (similarity) antara buku.
 
-6. Membuat kolom baru
+**6. Membuat kolom baru**
+
    Membuat kolom baru bernama Features di DataFrame preparation. Kolom ini adalah hasil penggabungan kolom Book-Title, Book-Author, dan Publisher yang dipisahkan oleh koma.
 
-7. Menghapus nilai NaN
+**7. Menghapus nilai NaN**
+
    Menghapus baris dengan nilai NaN pada kolom Features memastikan bahwa semua data yang digunakan untuk perhitungan similarity lengkap dan tidak menyebabkan error saat perhitungan dilakukan.
 
-8. Membuat nilai menjadi kecil semua
+**8. Membuat nilai menjadi kecil semua**
+
    Mengonversi semua teks pada kolom Features menjadi huruf kecil memastikan konsistensi dalam perhitungan similarity. Ini menghindari perbedaan antara huruf besar dan kecil yang dapat mempengaruhi hasil perhitungan.
 
-9. Memeriksa nilai duplicate
+**9. Memeriksa nilai duplicate**
    Memeriksa dan menghapus nilai duplikat pada kolom Book-Title penting untuk memastikan bahwa setiap buku hanya muncul sekali dalam dataset, menghindari bias dalam rekomendasi yang dihasilkan.
 
-10. Konversi kolom menjadi list
+**10. Konversi kolom menjadi list**
     Mengonversi kolom ISBN, Book-Title, dan Features menjadi daftar (list) memudahkan akses dan manipulasi data dalam tahap-tahap komputasi berikutnya, terutama saat membangun model dan memberikan rekomendasi.
 
-11. Membatasi jumlah data
+**11. Membatasi jumlah data**
     Mengambil 10.000 data pada kolom ISBN, Book-Title, dan Features membantu dalam memudahkan komputasi data.
 
-12. Membuat dictionary
+**12. Membuat dictionary**
     Membuat dictionary untuk menentukan pasangan key-value pada data ISBN, Book-Title, dan Features membantu dalam akses cepat dan efisien saat mencari informasi terkait buku tertentu, yang berguna dalam proses rekomendasi.
 
 ## Modeling
@@ -228,12 +236,7 @@ Fungsi book_recommendations dibuat untuk memberikan rekomendasi buku berdasarkan
 
   **Proses:**
 
-  - Mengambil indeks dari k nilai kemiripan tertinggi.
-
-  - Mendapatkan judul buku yang paling mirip.
-  Menghapus buku yang dicari dari hasil rekomendasi.
-
-  - Menggabungkan dengan informasi buku dan mengembalikan k rekomendasi teratas.
+Dalam proses rekomendasi menggunakan model content-based filtering, langkah pertama adalah mengambil indeks dari k nilai kemiripan tertinggi berdasarkan perhitungan cosine similarity. Ini berarti kita mencari buku-buku yang memiliki kemiripan tertinggi dengan buku yang dijadikan referensi. Setelah itu, kita mendapatkan judul buku yang paling mirip dari indeks-indeks tersebut. Namun, agar hasil rekomendasi tetap relevan, buku yang dicari tidak dimasukkan dalam daftar rekomendasi. Langkah terakhir adalah menggabungkan informasi buku yang dihasilkan, lalu mengembalikan k rekomendasi teratas kepada pengguna. Proses ini memastikan bahwa rekomendasi yang diberikan adalah buku-buku yang paling mirip dan relevan dengan preferensi pengguna.
 
 ### 5. Menghasilkan Rekomendasi
 Menggunakan fungsi book_recommendations untuk mendapatkan rekomendasi buku berdasarkan buku yang diberikan. Misalnya, untuk buku "Harry Potter and the Sorcerer's Stone (Book 1)". Dan memberikan rekomendasi buku yang diberikan.
