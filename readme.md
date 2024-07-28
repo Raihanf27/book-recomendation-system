@@ -99,11 +99,11 @@ Bisa dilihat pada statistik diatas bahwa umur memiliki:
 
 ### Data Preprocessing
 
-- Menggabungkan DataFrame ratings dan book bedasarkan kolom ISBN.
+1. Menggabungkan DataFrame ratings dan book bedasarkan kolom ISBN.
 
 ![merge1](https://github.com/user-attachments/assets/ebfc6475-1a2d-4a26-9b25-fd3d93311cba)
 
-- Menggabungkan data yang digabungkan tadi dengan data Users bedasarkan kolom User-ID
+2. Menggabungkan data yang digabungkan tadi dengan data Users bedasarkan kolom User-ID
 
 ![merge2](https://github.com/user-attachments/assets/e6381572-021b-4415-8f0f-30205f34f74e)
 
@@ -240,6 +240,7 @@ Fungsi book_recommendations dibuat untuk memberikan rekomendasi buku berdasarkan
 
   - k: Jumlah rekomendasi yang diinginkan.
 
+
   **Proses:**
 
 Dalam proses rekomendasi menggunakan model content-based filtering, langkah pertama adalah mengambil indeks dari k nilai kemiripan tertinggi berdasarkan perhitungan cosine similarity. Ini berarti kita mencari buku-buku yang memiliki kemiripan tertinggi dengan buku yang dijadikan referensi. Setelah itu, kita mendapatkan judul buku yang paling mirip dari indeks-indeks tersebut. Namun, agar hasil rekomendasi tetap relevan, buku yang dicari tidak dimasukkan dalam daftar rekomendasi. Langkah terakhir adalah menggabungkan informasi buku yang dihasilkan, lalu mengembalikan k rekomendasi teratas kepada pengguna. Proses ini memastikan bahwa rekomendasi yang diberikan adalah buku-buku yang paling mirip dan relevan dengan preferensi pengguna.
@@ -253,7 +254,7 @@ Menggunakan fungsi book_recommendations untuk mendapatkan rekomendasi buku berda
 
 Pada proyek ini, kami menggunakan dua metrik evaluasi utama untuk mengukur kinerja sistem rekomendasi, yaitu presisi dan recall.
 
-**Precision (Presisi):**
+**- Precision (Presisi):**
 Presisi mengukur proporsi item yang direkomendasikan yang benar-benar relevan. Nilai presisi tinggi menunjukkan bahwa sistem tidak sering merekomendasikan item yang tidak relevan.
 
 ![Presisi](https://github.com/user-attachments/assets/f6b30f84-9d1d-4846-b9a3-75606d2c150d)
@@ -263,7 +264,7 @@ Presisi mengukur proporsi item yang direkomendasikan yang benar-benar relevan. N
 - Menghitung TP dan FP: Tentukan jumlah prediksi yang benar-benar positif (TP) dan prediksi yang salah dianggap positif (FP).
 - Menghitung Presisi: Bagi jumlah TP dengan total TP dan FP
 
-**Recall:**
+**- Recall:**
 Recall mengukur proporsi item relevan yang berhasil direkomendasikan oleh sistem. Nilai recall tinggi menunjukkan bahwa sistem berhasil merekomendasikan sebagian besar item yang relevan.
 
 ![recall](https://github.com/user-attachments/assets/60472ca7-416a-49be-aed5-fb3286865d76)
