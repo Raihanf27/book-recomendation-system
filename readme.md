@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Pada era digital ini, volume informasi yang berlimpah menimbulkan tantangan baru dalam membantu pengguna menemukan informasi yang relevan. Dalam dunia literatur, khususnya, jumlah buku yang tersedia sangat banyak, sehingga membuat pengguna kesulitan menemukan buku yang sesuai dengan minat dan preferensinya. Sistem rekomendasi menjadi solusi penting untuk mengatasi tantangan ini, dengan memberikan rekomendasi yang tepat berdasarkan preferensi individu pengguna. Proyek ini bertujuan untuk mengembangkan sistem rekomendasi buku yang memanfaatkan teknik Machine Learning Content-Based Filtering untuk memberikan rekomendasi yang relevan.
+Pada era digital ini, informasi yang berlimpah menimbulkan tantangan baru dalam membantu pengguna menemukan informasi yang relevan. Dalam dunia literatur, khususnya, jumlah buku yang tersedia sangat banyak, sehingga membuat pengguna kesulitan menemukan buku yang sesuai dengan minat dan preferensinya. Sistem rekomendasi menjadi solusi penting untuk mengatasi tantangan ini, dengan memberikan rekomendasi yang tepat berdasarkan preferensi individu pengguna. Proyek ini bertujuan untuk mengembangkan sistem rekomendasi buku yang memanfaatkan teknik Machine Learning Content-Based Filtering untuk memberikan rekomendasi yang relevan.
 
 ## Business Understanding
 
