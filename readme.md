@@ -158,15 +158,7 @@ Mengambil 10.000 data pada kolom ISBN, Book-Title, dan Features membantu dalam m
 
 Membuat dictionary untuk menentukan pasangan key-value pada data ISBN, Book-Title, dan Features membantu dalam akses cepat dan efisien saat mencari informasi terkait buku tertentu, yang berguna dalam proses rekomendasi.
 
-## Modeling
-
-Proses modelling dalam proyek ini bertujuan untuk membangun sistem rekomendasi buku berdasarkan kemiripan fitur menggunakan model content-based filtering.
-
-Content-based filtering bekerja dengan menganalisis fitur dari item yang akan direkomendasikan dan menghitung kemiripan antara item-item tersebut. Proses ini melibatkan ekstraksi fitur, pembentukan vektor fitur, perhitungan kemiripan, dan akhirnya memberikan rekomendasi berdasarkan item yang paling mirip. Metode ini sangat efektif ketika data tentang pengguna terbatas atau tidak tersedia, karena hanya bergantung pada karakteristik item itu sendiri.
-
-Berikut adalah langkah-langkah detail dalam proses modelling:
-
-### **1. Pengambilan Sampel data**
+**13. Pengambilan Sampel data**
 
 Langkah pertama adalah mengambil sampel acak dari data yang telah disiapkan untuk memastikan bahwa data tersebut siap digunakan untuk modelling.
 
@@ -175,7 +167,7 @@ data = book_new
 data.sample(5)
 ```
 
-### **2. Mengubah Teks Menjadi Representasi Numerik dengan TF-IDF.**
+**14. Mengubah Teks Menjadi Representasi Numerik dengan TF-IDF.**
 
 TF-IDF (Term Frequency-Inverse Document Frequency)
 TF-IDF adalah teknik yang digunakan untuk mengubah teks menjadi representasi numerik. Ini membantu dalam memahami seberapa penting suatu kata dalam dokumen tertentu relatif terhadap seluruh kumpulan dokumen.
@@ -217,15 +209,29 @@ pd.DataFrame(
 ).sample(22, axis=1).sample(10, axis=0)
 ```
 
+## Modeling
+
+Proses modelling dalam proyek ini bertujuan untuk membangun sistem rekomendasi buku berdasarkan kemiripan fitur menggunakan model content-based filtering.
+
+Content-based filtering bekerja dengan menganalisis fitur dari item yang akan direkomendasikan dan menghitung kemiripan antara item-item tersebut. Proses ini melibatkan ekstraksi fitur, pembentukan vektor fitur, perhitungan kemiripan, dan akhirnya memberikan rekomendasi berdasarkan item yang paling mirip. Metode ini sangat efektif ketika data tentang pengguna terbatas atau tidak tersedia, karena hanya bergantung pada karakteristik item itu sendiri.
+
+Berikut adalah langkah-langkah detail dalam proses modelling:
+
 ### 3. Menghitung cosine similarity
 Cosine Similarity adalah metrik yang digunakan untuk mengukur kemiripan antara dua vektor dalam ruang multidimensi. Ini digunakan untuk mengukur seberapa mirip satu buku dengan buku lainnya berdasarkan fitur yang telah diekstraksi.
 
-```
-cosine_sim = cosine_similarity(tfidf_matrix)
-cosine_sim_df = pd.DataFrame(cosine_sim, index=data['Book_Title'], columns=data['Book_Title'])
-print('Shape:', cosine_sim_df.shape)
-cosine_sim_df.sample(5, axis=1).sample(10, axis=0)
-```
+Cara kerja adalah Cosine similarity mengukur sudut kosinus antara dua vektor. Semakin kecil sudut antara dua vektor, semakin besar nilai cosine similarity, yang menunjukkan bahwa kedua vektor tersebut semakin mirip. Nilai cosine similarity berkisar antara -1 dan 1:
+
+- Nilai 1 menunjukkan bahwa dua vektor memiliki arah yang sama.
+- Nilai 0 menunjukkan bahwa dua vektor ortogonal (tidak ada kemiripan).
+- Nilai -1 menunjukkan bahwa dua vektor memiliki arah yang berlawanan.
+
+Misalnya, dalam sistem rekomendasi buku, kita memiliki dua buku yang diwakili oleh fitur-fitur berikut:
+
+- Buku A: "Harry Potter and the Sorcerer's Stone"
+- Buku B: "Harry Potter and the Chamber of Secrets"
+
+Jika kita mengekstrak fitur-fitur (misalnya, judul, penulis, penerbit) dan mewakilinya sebagai vektor, kita dapat menghitung cosine similarity untuk menentukan seberapa mirip kedua buku ini. Jika hasilnya menunjukkan nilai cosine similarity yang tinggi, sistem dapat merekomendasikan Buku B kepada pengguna yang menyukai Buku A.
 
 ### 4. Membangun Fungsi Rekomendasi
 
