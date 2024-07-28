@@ -97,7 +97,7 @@ Bisa dilihat pada statistik diatas bahwa umur memiliki:
 - Kuartil ketiga (Q3): 44
 - Max: Umur tertua sebesar 244
 
-### Data Preprocessing
+## Data Preprocessing
 
 1. Menggabungkan DataFrame ratings dan book bedasarkan kolom ISBN.
 
