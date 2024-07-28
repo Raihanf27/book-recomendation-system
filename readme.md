@@ -26,11 +26,9 @@ Pada era digital ini, volume informasi yang berlimpah menimbulkan tantangan baru
 
 Dataset yang digunakan terdiri dari tiga file utama yakni:
 
-- Books.CSV: Pada dataset ini terdapat 271360 baris dan 8 kolom
-- Ratings.CSV: Pada dataset ini terdapat 1149780 baris dan 3 kolom
-- Users.CSV: Pada dataset ini terdapat 278858 baris dan 3 kolom
-
-Kondisi Data: Pada tiga dataset tersebut masih ada beberapa data yang null dan duplicate yang akan dibersihkan pada Data Preparation.
+- Books.CSV: Pada dataset ini terdapat 271.360 baris dan 8 kolom yang berisi informasi terkait buku.
+- Ratings.CSV: Pada dataset ini terdapat 1.149.780 baris dan 3 kolom yang berisi informasi terkait rating pada buku.
+- Users.CSV: Pada dataset ini terdapat 278.858 baris dan 3 kolom yang berisi terkait pengguna, lokasi dan pengguna.
 
 Sumber data ini diperoleh dari kaggle yang dapat diakses melalu link berikut: https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset
 
@@ -125,7 +123,7 @@ Bisa dilihat pada statistik diatas bahwa umur memiliki:
 
    Memeriksa nilai unik pada kolom User-ID, ISBN, dan Book-Title membantu memahami distribusi data dan memastikan bahwa tidak ada duplikasi yang tidak diinginkan. Ini juga membantu dalam validasi bahwa data telah digabungkan dengan benar.
 
-**5. Membuuat Dataframe**
+**5. Membuat Dataframe**
 
    Membuat kolom Features yang merupakan gabungan dari Book-Title, Book-Author, dan Publisher penting untuk model content-based filtering. Kolom ini menyatukan informasi penting dari buku yang akan digunakan untuk menghitung kemiripan (similarity) antara buku.
 
@@ -142,22 +140,28 @@ Bisa dilihat pada statistik diatas bahwa umur memiliki:
    Mengonversi semua teks pada kolom Features menjadi huruf kecil memastikan konsistensi dalam perhitungan similarity. Ini menghindari perbedaan antara huruf besar dan kecil yang dapat mempengaruhi hasil perhitungan.
 
 **9. Memeriksa nilai duplicate**
+
    Memeriksa dan menghapus nilai duplikat pada kolom Book-Title penting untuk memastikan bahwa setiap buku hanya muncul sekali dalam dataset, menghindari bias dalam rekomendasi yang dihasilkan.
 
 **10. Konversi kolom menjadi list**
+
     Mengonversi kolom ISBN, Book-Title, dan Features menjadi daftar (list) memudahkan akses dan manipulasi data dalam tahap-tahap komputasi berikutnya, terutama saat membangun model dan memberikan rekomendasi.
 
 **11. Membatasi jumlah data**
+
     Mengambil 10.000 data pada kolom ISBN, Book-Title, dan Features membantu dalam memudahkan komputasi data.
 
 **12. Membuat dictionary**
+
     Membuat dictionary untuk menentukan pasangan key-value pada data ISBN, Book-Title, dan Features membantu dalam akses cepat dan efisien saat mencari informasi terkait buku tertentu, yang berguna dalam proses rekomendasi.
 
 ## Modeling
 
+Proses modelling dalam proyek ini bertujuan untuk membangun sistem rekomendasi buku berdasarkan kemiripan fitur menggunakan model content-based filtering.
+
 Content-based filtering bekerja dengan menganalisis fitur dari item yang akan direkomendasikan dan menghitung kemiripan antara item-item tersebut. Proses ini melibatkan ekstraksi fitur, pembentukan vektor fitur, perhitungan kemiripan, dan akhirnya memberikan rekomendasi berdasarkan item yang paling mirip. Metode ini sangat efektif ketika data tentang pengguna terbatas atau tidak tersedia, karena hanya bergantung pada karakteristik item itu sendiri.
 
-Proses modelling dalam proyek ini bertujuan untuk membangun sistem rekomendasi buku berdasarkan kemiripan fitur menggunakan model content-based filtering. Berikut adalah langkah-langkah detail dalam proses modelling:
+Berikut adalah langkah-langkah detail dalam proses modelling:
 
 ### **1. Pengambilan Sampel data**
 
